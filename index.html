@@ -8,172 +8,146 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
 
 :root {
-  --teal:   #1ab8b0;
-  --coral:  #f05a28;
-  --gold:   #f5c842;
-  --dark:   #0a1f28;
-  --dark2:  #081720;
-  --card:   rgba(255,255,255,0.06);
-  --border: rgba(255,255,255,0.12);
-  --white:  #ffffff;
-  --muted:  rgba(255,255,255,0.5);
-  --green:  #27ae60;
+  --teal:  #1ab8b0;
+  --coral: #f05a28;
+  --gold:  #f5c842;
+  --dark2: #081720;
+  --card:  rgba(255,255,255,0.06);
+  --white: #ffffff;
+  --muted: rgba(255,255,255,0.5);
+  --green: #27ae60;
 }
-
 * { margin:0; padding:0; box-sizing:border-box; }
-
 body {
-  font-family: 'Noto Sans TC', sans-serif;
-  background: var(--dark2);
-  color: var(--white);
-  min-height: 100vh;
+  font-family:'Noto Sans TC',sans-serif;
+  background:var(--dark2);color:var(--white);min-height:100vh;
 }
 
-/* ── HERO ── */
+/* HERO */
 .hero {
-  background: linear-gradient(150deg, #0d3545 0%, #091c28 60%, #050f18 100%);
-  padding: 44px 24px 36px;
-  text-align: center;
-  border-bottom: 1px solid rgba(26,184,176,0.25);
-  position: relative;
-  overflow: hidden;
+  background:linear-gradient(150deg,#0d3545 0%,#091c28 60%,#050f18 100%);
+  padding:40px 24px 32px;text-align:center;
+  border-bottom:1px solid rgba(26,184,176,0.25);
+  position:relative;overflow:hidden;
 }
 .hero::after {
-  content:'';
-  position:absolute;
-  bottom: -1px; left:0; right:0; height:60px;
-  background: linear-gradient(to bottom, transparent, var(--dark2));
-  pointer-events:none;
+  content:'';position:absolute;bottom:-1px;left:0;right:0;height:50px;
+  background:linear-gradient(to bottom,transparent,var(--dark2));pointer-events:none;
 }
-.hero-wave {
+.hero-tag {
   font-size:11px;letter-spacing:5px;color:var(--teal);font-weight:900;
   border:1.5px solid rgba(26,184,176,0.4);border-radius:20px;
-  display:inline-block;padding:3px 18px;margin-bottom:16px;
+  display:inline-block;padding:3px 18px;margin-bottom:14px;
 }
-.hero h1 {
-  font-size:clamp(22px,5vw,34px);font-weight:900;line-height:1.2;
-  margin-bottom:10px;
-}
+.hero h1 { font-size:clamp(20px,5vw,30px);font-weight:900;line-height:1.25;margin-bottom:8px; }
 .hero h1 em { color:var(--teal);font-style:normal; }
-.hero-sub {
-  font-size:13px;color:var(--muted);line-height:1.8;
-}
+.hero-sub { font-size:12px;color:var(--muted);line-height:1.8; }
 .hero-sub strong { color:rgba(255,255,255,0.85); }
 
-/* ── STEP INDICATOR ── */
+/* 步驟列 */
 .steps {
   display:flex;align-items:center;justify-content:center;
-  gap:0;padding:24px 24px 0;
+  gap:0;padding:20px 24px 0;
 }
-.step {
-  display:flex;align-items:center;gap:8px;
-  font-size:12px;color:var(--muted);font-weight:700;
-}
+.step { display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted);font-weight:700; }
 .step-dot {
-  width:28px;height:28px;border-radius:50%;
-  border:2px solid rgba(255,255,255,0.15);
-  display:flex;align-items:center;justify-content:center;
-  font-size:12px;font-weight:900;flex-shrink:0;
-  transition: all 0.3s;
+  width:26px;height:26px;border-radius:50%;border:2px solid rgba(255,255,255,0.15);
+  display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;
+  transition:all .3s;
 }
-.step.active .step-dot {
-  background:var(--teal);border-color:var(--teal);color:#fff;
-}
-.step.done .step-dot {
-  background:var(--green);border-color:var(--green);color:#fff;
-}
+.step.active .step-dot { background:var(--teal);border-color:var(--teal);color:#fff; }
+.step.done   .step-dot { background:var(--green);border-color:var(--green);color:#fff; }
 .step.active { color:var(--teal); }
-.step.done { color:var(--green); }
-.step-line {
-  flex:1;height:2px;background:rgba(255,255,255,0.1);
-  max-width:60px;margin:0 6px;
-  position:relative;
-}
+.step.done   { color:var(--green); }
+.step-line { flex:1;height:2px;background:rgba(255,255,255,0.1);max-width:50px;margin:0 5px; }
 .step-line.done { background:var(--green); }
 
-/* ── FORM WRAPPER ── */
-.form-wrap {
-  max-width:520px;margin:0 auto;padding:24px 20px 40px;
+/* 表單容器 */
+.form-wrap { max-width:500px;margin:0 auto;padding:20px 18px 50px; }
+.form-body.hidden { display:none; }
+
+/* 區段標題 */
+.sec-label {
+  font-size:11px;font-weight:900;letter-spacing:3px;color:var(--muted);
+  text-transform:uppercase;margin:22px 0 10px;
+  display:flex;align-items:center;gap:8px;
+}
+.sec-label::after { content:'';flex:1;height:1px;background:rgba(255,255,255,0.08); }
+.sec-num {
+  width:20px;height:20px;background:var(--teal);border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:900;color:#fff;flex-shrink:0;
 }
 
-/* ── 乘車選擇卡片 ── */
-.ride-cards {
-  display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px;
-}
-@media(max-width:420px){.ride-cards{grid-template-columns:1fr;}}
-
-.ride-card {
+/* ── 場次卡片 ── */
+.date-grid { display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:4px; }
+.date-card {
   border:2px solid rgba(255,255,255,0.1);border-radius:12px;
-  padding:16px 14px;cursor:pointer;transition:all 0.2s;
-  background:var(--card);
-  -webkit-tap-highlight-color:transparent;
-}
-.ride-card.selected {
-  border-color:var(--teal);background:rgba(26,184,176,0.12);
-}
-.ride-card input[type=radio] { display:none; }
-.ride-card .rc-label {
-  font-size:10px;letter-spacing:3px;font-weight:900;
-  color:var(--muted);margin-bottom:6px;
-}
-.ride-card .rc-station {
-  font-size:17px;font-weight:900;margin-bottom:8px;color:var(--white);
-}
-.ride-card.selected .rc-station { color:var(--teal); }
-.ride-card .rc-times {
-  display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px;
-}
-.rc-time-tag {
-  font-size:13px;font-weight:700;
-  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);
-  border-radius:5px;padding:3px 10px;
-}
-.ride-card.selected .rc-time-tag {
-  background:rgba(26,184,176,0.15);border-color:rgba(26,184,176,0.4);
-}
-.ride-card .rc-sub {
-  font-size:11px;color:var(--muted);line-height:1.4;
-}
-
-/* 時段選擇（花蓮站用） */
-.time-select-wrap { display:none;margin-bottom:20px; }
-.time-select-wrap.show { display:block; }
-.time-select-label {
-  font-size:12px;font-weight:700;color:var(--muted);
-  letter-spacing:2px;margin-bottom:10px;
-}
-.time-options { display:flex;gap:10px;flex-wrap:wrap; }
-.time-opt {
-  border:2px solid rgba(255,255,255,0.12);border-radius:8px;
-  padding:10px 18px;cursor:pointer;transition:all 0.2s;
-  background:var(--card);font-size:16px;font-weight:900;
-  -webkit-tap-highlight-color:transparent;
-}
-.time-opt.selected {
-  border-color:var(--gold);background:rgba(245,200,66,0.12);color:var(--gold);
-}
-.time-opt input[type=radio] { display:none; }
-
-/* 乘車日期 */
-.date-select { display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px; }
-.date-opt {
-  border:2px solid rgba(255,255,255,0.12);border-radius:10px;
-  padding:12px 14px;cursor:pointer;transition:all 0.2s;
+  padding:16px 14px;cursor:pointer;transition:all .2s;
   background:var(--card);text-align:center;
   -webkit-tap-highlight-color:transparent;
 }
-.date-opt.selected {
-  border-color:var(--coral);background:rgba(240,90,40,0.12);
-}
-.date-opt input[type=radio] { display:none; }
-.date-opt .do-day { font-size:20px;font-weight:900; }
-.date-opt .do-sub { font-size:11px;color:var(--muted);margin-top:2px; }
-.date-opt.selected .do-day { color:var(--coral); }
+.date-card.sel { border-color:var(--teal);background:rgba(26,184,176,0.12); }
+.date-card input[type=radio] { display:none; }
+.dc-month { font-size:10px;color:var(--muted);font-weight:700;letter-spacing:2px;margin-bottom:4px; }
+.dc-day { font-size:26px;font-weight:900;line-height:1; }
+.dc-week { font-size:11px;color:var(--muted);margin-top:4px; }
+.date-card.sel .dc-day { color:var(--teal); }
+.date-card.sel .dc-week { color:rgba(26,184,176,0.7); }
 
-/* ── FIELD ── */
-.field { margin-bottom:18px; }
+/* ── 地點卡片 ── */
+.station-grid { display:grid;grid-template-columns:1fr 1fr;gap:10px; }
+@media(max-width:380px){ .station-grid,.date-grid{ grid-template-columns:1fr; } }
+.station-card {
+  border:2px solid rgba(255,255,255,0.1);border-radius:12px;
+  padding:16px 14px;cursor:pointer;transition:all .2s;
+  background:var(--card);-webkit-tap-highlight-color:transparent;
+}
+.station-card.sel { border-color:var(--teal);background:rgba(26,184,176,0.12); }
+.station-card input[type=radio] { display:none; }
+.sc-badge {
+  font-size:9px;font-weight:900;letter-spacing:3px;color:var(--muted);margin-bottom:6px;
+}
+.sc-name { font-size:16px;font-weight:900;color:var(--white);margin-bottom:8px; }
+.station-card.sel .sc-name { color:var(--teal); }
+.sc-fixed-time {
+  display:inline-block;font-size:14px;font-weight:900;
+  background:rgba(245,200,66,0.12);border:1px solid rgba(245,200,66,0.35);
+  border-radius:5px;padding:3px 10px;color:var(--gold);margin-bottom:6px;
+}
+.sc-sub { font-size:10.5px;color:var(--muted);line-height:1.4; }
+
+/* ── 班次選擇（花蓮站專用，條件顯示） ── */
+.time-wrap { display:none;margin-top:4px; }
+.time-wrap.show { display:block; }
+.time-grid { display:flex;gap:10px;flex-wrap:wrap; }
+.time-card {
+  flex:1;min-width:120px;border:2px solid rgba(255,255,255,0.12);border-radius:10px;
+  padding:14px;cursor:pointer;transition:all .2s;background:var(--card);text-align:center;
+  -webkit-tap-highlight-color:transparent;
+}
+.time-card.sel { border-color:var(--gold);background:rgba(245,200,66,0.1); }
+.time-card input[type=radio] { display:none; }
+.tc-time { font-size:24px;font-weight:900;line-height:1;margin-bottom:4px; }
+.time-card.sel .tc-time { color:var(--gold); }
+.tc-sub { font-size:10px;color:var(--muted); }
+
+/* 光復站班次說明（固定，不需選） */
+.fixed-time-block {
+  display:none;
+  background:rgba(245,200,66,0.07);border:1px solid rgba(245,200,66,0.2);
+  border-radius:10px;padding:14px 16px;margin-top:10px;
+  align-items:center;gap:14px;
+}
+.fixed-time-block.show { display:flex; }
+.ftb-time { font-size:28px;font-weight:900;color:var(--gold);line-height:1; }
+.ftb-info { font-size:12px;color:rgba(255,255,255,0.7);line-height:1.6; }
+.ftb-info strong { color:var(--white); }
+
+/* 欄位 */
+.field { margin-bottom:16px; }
 .field label {
-  display:block;font-size:12px;font-weight:700;letter-spacing:2px;
+  display:block;font-size:11px;font-weight:700;letter-spacing:2px;
   color:var(--muted);margin-bottom:8px;text-transform:uppercase;
 }
 .field label span.req { color:var(--coral);margin-left:3px; }
@@ -181,258 +155,239 @@ body {
   width:100%;background:rgba(255,255,255,0.07);
   border:1.5px solid rgba(255,255,255,0.15);border-radius:8px;
   padding:13px 16px;font-size:16px;color:var(--white);
-  font-family:'Noto Sans TC',sans-serif;transition:border 0.2s;
-  outline:none;-webkit-appearance:none;
+  font-family:'Noto Sans TC',sans-serif;outline:none;
+  -webkit-appearance:none;transition:border .2s;
 }
 .field input:focus { border-color:var(--teal);background:rgba(26,184,176,0.07); }
-.field input.error { border-color:var(--coral); }
-.field .hint { font-size:11.5px;color:var(--muted);margin-top:6px;line-height:1.5; }
-.field .err-msg { font-size:11.5px;color:var(--coral);margin-top:6px;display:none; }
-.field .err-msg.show { display:block; }
+.field input.err { border-color:var(--coral); }
+.hint { font-size:11.5px;color:var(--muted);margin-top:6px;line-height:1.5; }
+.err-msg { font-size:11.5px;color:var(--coral);margin-top:6px;display:none; }
+.err-msg.show { display:block; }
 
-/* ── 送出按鈕 ── */
-.btn-submit {
+/* 送出按鈕 */
+.btn-go {
   width:100%;padding:16px;border:none;border-radius:10px;
   background:linear-gradient(135deg,var(--teal),#0d9e97);
   color:#fff;font-size:16px;font-weight:900;letter-spacing:2px;
-  cursor:pointer;transition:all 0.2s;font-family:'Noto Sans TC',sans-serif;
-  margin-top:8px;
+  cursor:pointer;transition:all .2s;font-family:'Noto Sans TC',sans-serif;margin-top:10px;
 }
-.btn-submit:hover { opacity:0.9;transform:translateY(-1px); }
-.btn-submit:disabled { opacity:0.4;cursor:not-allowed;transform:none; }
+.btn-go:hover { opacity:.9;transform:translateY(-1px); }
 
-/* ── CONFIRM MODAL ── */
+/* 錯誤全局提示 */
+.global-err {
+  display:none;background:rgba(240,90,40,0.12);border:1px solid rgba(240,90,40,0.35);
+  border-radius:8px;padding:10px 14px;font-size:12.5px;color:#ff9980;
+  margin-bottom:14px;line-height:1.6;
+}
+.global-err.show { display:block; }
+
+/* MODAL */
 .modal-overlay {
   display:none;position:fixed;inset:0;
-  background:rgba(0,0,0,0.8);z-index:100;
+  background:rgba(0,0,0,0.82);z-index:100;
   align-items:center;justify-content:center;padding:20px;
 }
 .modal-overlay.show { display:flex; }
 .modal {
   background:#0e2a38;border:1px solid rgba(26,184,176,0.3);
-  border-radius:16px;padding:28px 24px;max-width:420px;width:100%;
-  position:relative;
+  border-radius:16px;padding:26px 22px;max-width:420px;width:100%;
 }
 .modal-title {
-  font-size:16px;font-weight:900;color:var(--teal);
-  margin-bottom:20px;letter-spacing:1px;
-  display:flex;align-items:center;gap:8px;
+  font-size:15px;font-weight:900;color:var(--teal);
+  margin-bottom:18px;letter-spacing:1px;
 }
-.modal-rows { display:flex;flex-direction:column;gap:12px;margin-bottom:24px; }
+.modal-rows { display:flex;flex-direction:column;gap:10px;margin-bottom:20px; }
 .modal-row {
-  display:flex;justify-content:space-between;align-items:flex-start;
-  padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.07);
-  gap:12px;
+  display:flex;justify-content:space-between;align-items:flex-start;gap:12px;
+  padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.07);
 }
 .modal-row:last-child { border-bottom:none;padding-bottom:0; }
 .mr-label { font-size:11px;color:var(--muted);font-weight:700;letter-spacing:2px;flex-shrink:0; }
-.mr-val { font-size:14px;font-weight:700;text-align:right;color:var(--white); }
+.mr-val { font-size:14px;font-weight:700;text-align:right;color:var(--white);line-height:1.4; }
+.mr-val.hi { color:var(--teal); }
 .modal-warn {
   background:rgba(240,90,40,0.1);border:1px solid rgba(240,90,40,0.25);
   border-radius:8px;padding:10px 14px;font-size:12px;
-  color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:20px;
+  color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:18px;
 }
 .modal-btns { display:grid;grid-template-columns:1fr 1fr;gap:10px; }
 .btn-back {
   padding:13px;border:1.5px solid rgba(255,255,255,0.2);border-radius:8px;
   background:transparent;color:var(--white);font-size:14px;font-weight:700;
-  cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all 0.2s;
+  cursor:pointer;font-family:'Noto Sans TC',sans-serif;
 }
-.btn-back:hover { border-color:rgba(255,255,255,0.4); }
 .btn-confirm {
   padding:13px;border:none;border-radius:8px;
   background:linear-gradient(135deg,var(--teal),#0d9e97);
   color:#fff;font-size:14px;font-weight:900;
-  cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all 0.2s;
-  letter-spacing:1px;
+  cursor:pointer;font-family:'Noto Sans TC',sans-serif;letter-spacing:1px;
 }
-.btn-confirm:hover { opacity:0.9; }
 
-/* ── SUCCESS ── */
-.success-screen {
-  display:none;text-align:center;padding:40px 20px;
-  max-width:480px;margin:0 auto;
-}
+/* 成功畫面 */
+.success-screen { display:none;text-align:center;padding:36px 16px; }
 .success-screen.show { display:block; }
-.success-icon { font-size:64px;margin-bottom:20px;animation:pop 0.4s ease; }
+.success-icon { font-size:60px;margin-bottom:16px;animation:pop .4s ease; }
 @keyframes pop {
-  0%{transform:scale(0.5);opacity:0}
-  80%{transform:scale(1.1)}
-  100%{transform:scale(1);opacity:1}
+  0%{transform:scale(.5);opacity:0} 80%{transform:scale(1.1)} 100%{transform:scale(1);opacity:1}
 }
-.success-title { font-size:24px;font-weight:900;margin-bottom:12px;color:var(--teal); }
+.success-title { font-size:22px;font-weight:900;color:var(--teal);margin-bottom:10px; }
 .success-card {
-  background:var(--card);border:1px solid var(--border);
-  border-radius:12px;padding:20px;margin:20px 0;text-align:left;
+  background:var(--card);border:1px solid rgba(255,255,255,0.1);
+  border-radius:12px;padding:18px;margin:16px 0;text-align:left;
 }
-.success-rows { display:flex;flex-direction:column;gap:10px; }
+.success-rows { display:flex;flex-direction:column;gap:8px; }
 .success-row {
-  display:flex;justify-content:space-between;
-  font-size:13px;padding-bottom:10px;
-  border-bottom:1px solid rgba(255,255,255,0.06);
+  display:flex;justify-content:space-between;font-size:13px;
+  padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.06);
 }
 .success-row:last-child { border-bottom:none;padding-bottom:0; }
 .sr-label { color:var(--muted); }
-.sr-val { font-weight:700; }
+.sr-val { font-weight:700;text-align:right; }
 .success-notes {
-  font-size:12px;color:var(--muted);line-height:1.8;
-  text-align:left;margin-top:4px;
+  list-style:none;font-size:12px;color:var(--muted);line-height:1.9;text-align:left;
 }
-.success-notes li { margin-bottom:4px; }
-
-/* ── SECTION LABEL ── */
-.sec-label {
-  font-size:11px;font-weight:900;letter-spacing:3px;color:var(--muted);
-  text-transform:uppercase;margin-bottom:12px;margin-top:24px;
-  display:flex;align-items:center;gap:8px;
-}
-.sec-label::after {
-  content:'';flex:1;height:1px;background:rgba(255,255,255,0.08);
-}
-
-/* 表單本體隱藏控制 */
-.form-body { }
-.form-body.hidden { display:none; }
 </style>
 </head>
 <body>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-wave">免費接駁 · 預約報名</div>
+  <div class="hero-tag">免費接駁 · 預約報名</div>
   <h1>2026豐濱製造音樂市集<br><em>接駁車預約</em></h1>
   <div class="hero-sub">
     <strong>7月11日（六）· 7月12日（日）</strong><br>
-    花蓮火車站 / 光復火車站 → 豐濱溪出海口<br>
-    事先報名掌握人數，確保您的座位
+    花蓮火車站 / 光復火車站 → 豐濱溪出海口
   </div>
 </div>
 
-<!-- 步驟指示 -->
-<div class="steps" id="steps">
-  <div class="step active" id="step1">
-    <div class="step-dot">1</div>
-    <span>填寫資料</span>
-  </div>
-  <div class="step-line" id="line1"></div>
-  <div class="step" id="step2">
-    <div class="step-dot">2</div>
-    <span>確認資料</span>
-  </div>
-  <div class="step-line" id="line2"></div>
-  <div class="step" id="step3">
-    <div class="step-dot">3</div>
-    <span>完成報名</span>
-  </div>
+<!-- 步驟 -->
+<div class="steps" id="stepsBar">
+  <div class="step active" id="s1"><div class="step-dot">1</div><span>填寫資料</span></div>
+  <div class="step-line" id="l1"></div>
+  <div class="step" id="s2"><div class="step-dot">2</div><span>確認資料</span></div>
+  <div class="step-line" id="l2"></div>
+  <div class="step" id="s3"><div class="step-dot">3</div><span>完成報名</span></div>
 </div>
 
 <div class="form-wrap">
+<div class="form-body" id="formBody">
 
-  <!-- ══ 表單主體 ══ -->
-  <div class="form-body" id="formBody">
+  <!-- 全局錯誤提示 -->
+  <div class="global-err" id="globalErr">⚠️ 請確認以下必填項目都已填寫完整後再送出。</div>
 
-    <!-- 選擇乘車日期 -->
-    <div class="sec-label">乘車日期</div>
-    <div class="date-select" id="dateSelect">
-      <label class="date-opt" id="d11">
-        <input type="radio" name="date" value="7/11（六）">
-        <div class="do-day">7 / 11</div>
-        <div class="do-sub">星期六</div>
-      </label>
-      <label class="date-opt" id="d12">
-        <input type="radio" name="date" value="7/12（日）">
-        <div class="do-day">7 / 12</div>
-        <div class="do-sub">星期日</div>
-      </label>
-    </div>
-
-    <!-- 選擇上車地點 -->
-    <div class="sec-label">上車地點</div>
-    <div class="ride-cards" id="rideCards">
-      <label class="ride-card" id="card-hl">
-        <input type="radio" name="station" value="花蓮火車站">
-        <div class="rc-label">出發地 A</div>
-        <div class="rc-station">花蓮火車站</div>
-        <div class="rc-times">
-          <span class="rc-time-tag">14:30</span>
-          <span class="rc-time-tag">14:45</span>
-        </div>
-        <div class="rc-sub">前站廣場入口 · 車程約80分</div>
-      </label>
-      <label class="ride-card" id="card-gr">
-        <input type="radio" name="station" value="光復火車站">
-        <div class="rc-label">出發地 B</div>
-        <div class="rc-station">光復火車站</div>
-        <div class="rc-times">
-          <span class="rc-time-tag">15:00</span>
-        </div>
-        <div class="rc-sub">車站正門廣場 · 車程約40分</div>
-      </label>
-    </div>
-
-    <!-- 花蓮班次選擇（僅花蓮站出現） -->
-    <div class="time-select-wrap" id="timeWrap">
-      <div class="sec-label">選擇班次</div>
-      <div class="time-options" id="timeOptions">
-        <label class="time-opt" id="t1430">
-          <input type="radio" name="busTime" value="14:30 班">
-          14:30
-        </label>
-        <label class="time-opt" id="t1445">
-          <input type="radio" name="busTime" value="14:45 班">
-          14:45
-        </label>
-      </div>
-    </div>
-
-    <!-- 姓名 -->
-    <div class="sec-label">個人資料</div>
-    <div class="field">
-      <label>姓名<span class="req">＊</span></label>
-      <input type="text" id="nameInput" placeholder="請輸入真實姓名" autocomplete="name">
-      <div class="err-msg" id="nameErr">請輸入姓名</div>
-    </div>
-
-    <!-- 手機 -->
-    <div class="field">
-      <label>手機號碼<span class="req">＊</span></label>
-      <input type="tel" id="phoneInput" placeholder="0912-345-678" autocomplete="tel" maxlength="12">
-      <div class="hint">📱 請填寫正確手機號碼，活動前將以簡訊通知接駁資訊</div>
-      <div class="err-msg" id="phoneErr">請輸入正確的手機號碼（09 開頭，10 碼）</div>
-    </div>
-
-    <button class="btn-submit" id="btnNext" onclick="handleSubmit()">確認資料，前往送出 →</button>
-
-  </div><!-- /form-body -->
-
-  <!-- 成功畫面 -->
-  <div class="success-screen" id="successScreen">
-    <div class="success-icon">🎉</div>
-    <div class="success-title">報名完成！</div>
-    <p style="font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:16px;line-height:1.7;">
-      感謝您的報名，我們已收到您的接駁預約。<br>
-      活動前將以<strong style="color:#fff;">簡訊</strong>通知您接駁相關資訊。
-    </p>
-    <div class="success-card">
-      <div class="success-rows" id="successRows"></div>
-    </div>
-    <ul class="success-notes">
-      <li>🎫 當日請提早10分鐘抵達集合點領取號碼牌</li>
-      <li>📍 花蓮火車站：前站廣場入口</li>
-      <li>📍 光復火車站：車站正門廣場</li>
-      <li>⚠️ 號碼牌依到場順序發放，請準時抵達</li>
-    </ul>
+  <!-- ① 參加場次 -->
+  <div class="sec-label"><span class="sec-num">1</span>參加場次</div>
+  <div class="date-grid" id="dateGrid">
+    <label class="date-card" id="dc11">
+      <input type="radio" name="date" value="7月11日（六）">
+      <div class="dc-month">JULY 2026</div>
+      <div class="dc-day">11</div>
+      <div class="dc-week">星期六</div>
+    </label>
+    <label class="date-card" id="dc12">
+      <input type="radio" name="date" value="7月12日（日）">
+      <div class="dc-month">JULY 2026</div>
+      <div class="dc-day">12</div>
+      <div class="dc-week">星期日</div>
+    </label>
   </div>
+
+  <!-- ② 接駁地點 -->
+  <div class="sec-label"><span class="sec-num">2</span>接駁上車地點</div>
+  <div class="station-grid" id="stationGrid">
+    <label class="station-card" id="sc-hl">
+      <input type="radio" name="station" value="花蓮火車站">
+      <div class="sc-badge">出發地 A</div>
+      <div class="sc-name">花蓮火車站</div>
+      <div class="sc-sub">前站廣場入口<br>車程約 80 分鐘</div>
+    </label>
+    <label class="station-card" id="sc-gr">
+      <input type="radio" name="station" value="光復火車站">
+      <div class="sc-badge">出發地 B</div>
+      <div class="sc-name">光復火車站</div>
+      <div class="sc-fixed-time">15:00</div>
+      <div class="sc-sub">車站正門廣場<br>車程約 40 分鐘</div>
+    </label>
+  </div>
+
+  <!-- ③ 發車班次（動態顯示） -->
+  <div class="sec-label" id="timeLabel" style="display:none;"><span class="sec-num">3</span>發車班次</div>
+
+  <!-- 花蓮站：選班次 -->
+  <div class="time-wrap" id="timeWrap">
+    <div class="time-grid">
+      <label class="time-card" id="tc1430">
+        <input type="radio" name="busTime" value="14:30">
+        <div class="tc-time">14:30</div>
+        <div class="tc-sub">第一班</div>
+      </label>
+      <label class="time-card" id="tc1445">
+        <input type="radio" name="busTime" value="14:45">
+        <div class="tc-time">14:45</div>
+        <div class="tc-sub">第二班</div>
+      </label>
+    </div>
+  </div>
+
+  <!-- 光復站：固定班次說明 -->
+  <div class="fixed-time-block" id="fixedTimeBlock">
+    <div class="ftb-time">15:00</div>
+    <div class="ftb-info">
+      <strong>光復火車站 唯一班次</strong><br>
+      車站正門廣場集合 · 車程約 40 分鐘<br>
+      請於 14:50 前抵達候車
+    </div>
+  </div>
+
+  <!-- ④ 個人資料 -->
+  <div class="sec-label"><span class="sec-num" id="personalNum">4</span>個人資料</div>
+
+  <div class="field">
+    <label>姓名<span class="req">＊</span></label>
+    <input type="text" id="nameInput" placeholder="請輸入真實姓名" autocomplete="name">
+    <div class="err-msg" id="nameErr">請輸入姓名</div>
+  </div>
+
+  <div class="field">
+    <label>手機號碼<span class="req">＊</span></label>
+    <input type="tel" id="phoneInput" placeholder="0912345678" autocomplete="tel" maxlength="10">
+    <div class="hint">📱 請填寫正確手機號碼（09 開頭，共 10 碼），活動前將以簡訊通知接駁資訊</div>
+    <div class="err-msg" id="phoneErr">手機號碼格式不正確，請輸入 09 開頭的 10 碼數字</div>
+  </div>
+
+  <button class="btn-go" onclick="handleSubmit()">確認資料，前往送出 →</button>
+
+</div><!-- /form-body -->
+
+<!-- 成功畫面 -->
+<div class="success-screen" id="successScreen">
+  <div class="success-icon">🎉</div>
+  <div class="success-title">報名完成！</div>
+  <p style="font-size:13px;color:rgba(255,255,255,0.65);margin-bottom:14px;line-height:1.8;">
+    感謝您的預約！我們已收到您的接駁報名資料。<br>
+    活動前將以 <strong style="color:#fff;">簡訊</strong> 通知接駁相關資訊。
+  </p>
+  <div class="success-card">
+    <div class="success-rows" id="successRows"></div>
+  </div>
+  <ul class="success-notes">
+    <li>🎫 當日請提早 10 分鐘到集合點領取號碼牌</li>
+    <li>📍 花蓮火車站：前站廣場入口</li>
+    <li>📍 光復火車站：車站正門廣場</li>
+    <li>⚠️ 號碼牌依到場順序發放，號碼牌發完即止</li>
+    <li>🌀 如有颱風請關注官方 LINE 頻道最新通知</li>
+  </ul>
+</div>
 
 </div><!-- /form-wrap -->
 
-<!-- ══ 確認 MODAL ══ -->
+<!-- MODAL 確認 -->
 <div class="modal-overlay" id="confirmModal">
   <div class="modal">
     <div class="modal-title">🔍 請確認您的報名資料</div>
     <div class="modal-rows" id="modalRows"></div>
     <div class="modal-warn">
-      ⚠️ 請再次確認<strong>手機號碼正確</strong>，接駁通知將傳送至此號碼。<br>
+      ⚠️ 請再次確認 <strong>手機號碼正確</strong>，接駁通知將傳送至此號碼。<br>
       確認無誤後請按「確認送出」完成報名。
     </div>
     <div class="modal-btns">
@@ -443,141 +398,155 @@ body {
 </div>
 
 <script>
-// 狀態
 let formData = {};
 
-// 日期選擇
-document.querySelectorAll('.date-opt input[type=radio]').forEach(r => {
+// ── 場次選擇 ──
+document.querySelectorAll('input[name=date]').forEach(r => {
   r.addEventListener('change', function() {
-    document.querySelectorAll('.date-opt').forEach(d => d.classList.remove('selected'));
-    this.closest('.date-opt').classList.add('selected');
+    document.querySelectorAll('.date-card').forEach(d => d.classList.remove('sel'));
+    this.closest('.date-card').classList.add('sel');
+    document.getElementById('dateGrid').style.outline = '';
   });
 });
 
-// 上車地點選擇
-document.querySelectorAll('.ride-card input[type=radio]').forEach(r => {
+// ── 地點選擇 → 動態顯示班次區 ──
+document.querySelectorAll('input[name=station]').forEach(r => {
   r.addEventListener('change', function() {
-    document.querySelectorAll('.ride-card').forEach(c => c.classList.remove('selected'));
-    this.closest('.ride-card').classList.add('selected');
-    // 花蓮站才顯示班次選擇
-    const tw = document.getElementById('timeWrap');
-    if (this.value === '花蓮火車站') {
-      tw.classList.add('show');
+    document.querySelectorAll('.station-card').forEach(c => c.classList.remove('sel'));
+    this.closest('.station-card').classList.add('sel');
+    document.getElementById('stationGrid').style.outline = '';
+
+    const isHL = this.value === '花蓮火車站';
+    const timeLabel  = document.getElementById('timeLabel');
+    const timeWrap   = document.getElementById('timeWrap');
+    const fixedBlock = document.getElementById('fixedTimeBlock');
+    const pNum       = document.getElementById('personalNum');
+
+    timeLabel.style.display = 'flex';
+
+    if (isHL) {
+      timeWrap.classList.add('show');
+      fixedBlock.classList.remove('show');
+      timeLabel.childNodes[1].textContent = '發車班次（請選擇）';
+      pNum.textContent = '4';
     } else {
-      tw.classList.remove('show');
-      document.querySelectorAll('.time-opt').forEach(t => t.classList.remove('selected'));
+      timeWrap.classList.remove('show');
+      fixedBlock.classList.add('show');
+      // 清除花蓮班次
       document.querySelectorAll('input[name=busTime]').forEach(r2 => r2.checked = false);
+      document.querySelectorAll('.time-card').forEach(t => t.classList.remove('sel'));
+      timeLabel.childNodes[1].textContent = '發車班次';
+      pNum.textContent = '4';
     }
   });
 });
 
-// 班次選擇
-document.querySelectorAll('.time-opt input[type=radio]').forEach(r => {
+// ── 花蓮班次選擇 ──
+document.querySelectorAll('input[name=busTime]').forEach(r => {
   r.addEventListener('change', function() {
-    document.querySelectorAll('.time-opt').forEach(t => t.classList.remove('selected'));
-    this.closest('.time-opt').classList.add('selected');
+    document.querySelectorAll('.time-card').forEach(t => t.classList.remove('sel'));
+    this.closest('.time-card').classList.add('sel');
+    document.getElementById('timeWrap').style.outline = '';
   });
 });
 
-// 手機格式化
+// ── 手機只允許數字 ──
 document.getElementById('phoneInput').addEventListener('input', function() {
-  let v = this.value.replace(/\D/g,'');
-  if (v.length > 10) v = v.slice(0,10);
-  this.value = v;
+  this.value = this.value.replace(/\D/g, '').slice(0, 10);
 });
 
-// 驗證
+// ── 驗證 ──
 function validate() {
   let ok = true;
+  const ge = document.getElementById('globalErr');
+  ge.classList.remove('show');
 
-  // 日期
-  const dateVal = document.querySelector('input[name=date]:checked');
-  if (!dateVal) {
-    document.getElementById('dateSelect').style.outline = '2px solid #f05a28';
-    document.getElementById('dateSelect').style.borderRadius = '10px';
+  // 場次
+  if (!document.querySelector('input[name=date]:checked')) {
+    document.getElementById('dateGrid').style.outline = '2px solid #f05a28';
+    document.getElementById('dateGrid').style.borderRadius = '12px';
     ok = false;
   } else {
-    document.getElementById('dateSelect').style.outline = '';
+    document.getElementById('dateGrid').style.outline = '';
   }
 
-  // 上車地點
-  const stationVal = document.querySelector('input[name=station]:checked');
-  if (!stationVal) {
-    document.getElementById('rideCards').style.outline = '2px solid #f05a28';
-    document.getElementById('rideCards').style.borderRadius = '12px';
+  // 地點
+  const stChk = document.querySelector('input[name=station]:checked');
+  if (!stChk) {
+    document.getElementById('stationGrid').style.outline = '2px solid #f05a28';
+    document.getElementById('stationGrid').style.borderRadius = '12px';
     ok = false;
   } else {
-    document.getElementById('rideCards').style.outline = '';
+    document.getElementById('stationGrid').style.outline = '';
     // 花蓮站需選班次
-    if (stationVal.value === '花蓮火車站') {
-      const timeVal = document.querySelector('input[name=busTime]:checked');
-      if (!timeVal) {
-        document.getElementById('timeOptions').style.outline = '2px solid #f05a28';
-        document.getElementById('timeOptions').style.borderRadius = '8px';
-        ok = false;
-      } else {
-        document.getElementById('timeOptions').style.outline = '';
-      }
+    if (stChk.value === '花蓮火車站' && !document.querySelector('input[name=busTime]:checked')) {
+      document.getElementById('timeWrap').style.outline = '2px solid #f05a28';
+      document.getElementById('timeWrap').style.borderRadius = '10px';
+      ok = false;
+    } else {
+      document.getElementById('timeWrap').style.outline = '';
     }
   }
 
   // 姓名
   const name = document.getElementById('nameInput').value.trim();
-  const nameErr = document.getElementById('nameErr');
   if (!name) {
-    document.getElementById('nameInput').classList.add('error');
-    nameErr.classList.add('show');
+    document.getElementById('nameInput').classList.add('err');
+    document.getElementById('nameErr').classList.add('show');
     ok = false;
   } else {
-    document.getElementById('nameInput').classList.remove('error');
-    nameErr.classList.remove('show');
+    document.getElementById('nameInput').classList.remove('err');
+    document.getElementById('nameErr').classList.remove('show');
   }
 
   // 手機
   const phone = document.getElementById('phoneInput').value.trim();
-  const phoneErr = document.getElementById('phoneErr');
-  const phoneOk = /^09\d{8}$/.test(phone);
-  if (!phoneOk) {
-    document.getElementById('phoneInput').classList.add('error');
-    phoneErr.classList.add('show');
+  if (!/^09\d{8}$/.test(phone)) {
+    document.getElementById('phoneInput').classList.add('err');
+    document.getElementById('phoneErr').classList.add('show');
     ok = false;
   } else {
-    document.getElementById('phoneInput').classList.remove('error');
-    phoneErr.classList.remove('show');
+    document.getElementById('phoneInput').classList.remove('err');
+    document.getElementById('phoneErr').classList.remove('show');
   }
 
+  if (!ok) ge.classList.add('show');
   return ok;
 }
 
+// ── 送出前確認 ──
 function handleSubmit() {
   if (!validate()) {
-    document.querySelector('.field.error, input.error')?.scrollIntoView({behavior:'smooth', block:'center'});
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     return;
   }
 
-  const stationVal = document.querySelector('input[name=station]:checked').value;
-  const timeVal = stationVal === '花蓮火車站'
+  const stVal = document.querySelector('input[name=station]:checked').value;
+  const busTimeVal = stVal === '花蓮火車站'
     ? document.querySelector('input[name=busTime]:checked').value
-    : '15:00 班';
+    : '15:00';
 
   formData = {
-    date: document.querySelector('input[name=date]:checked').value,
-    station: stationVal,
-    busTime: timeVal,
-    name: document.getElementById('nameInput').value.trim(),
-    phone: document.getElementById('phoneInput').value.trim(),
+    date:    document.querySelector('input[name=date]:checked').value,
+    station: stVal,
+    busTime: busTimeVal,
+    name:    document.getElementById('nameInput').value.trim(),
+    phone:   document.getElementById('phoneInput').value.trim(),
   };
 
-  // 填入 modal
   const rows = [
-    ['乘車日期', formData.date],
-    ['上車地點', formData.station],
-    ['乘車班次', formData.busTime],
-    ['姓名', formData.name],
+    ['參加場次', formData.date],
+    ['接駁地點', formData.station],
+    ['發車班次', formData.busTime],
+    ['姓名',     formData.name],
     ['手機號碼', formData.phone],
   ];
+
   document.getElementById('modalRows').innerHTML = rows.map(([l,v]) =>
-    `<div class="modal-row"><span class="mr-label">${l}</span><span class="mr-val">${v}</span></div>`
+    `<div class="modal-row">
+      <span class="mr-label">${l}</span>
+      <span class="mr-val${l==='手機號碼'?' hi':''}">${v}</span>
+    </div>`
   ).join('');
 
   document.getElementById('confirmModal').classList.add('show');
@@ -590,29 +559,28 @@ function closeModal() {
 function confirmSubmit() {
   document.getElementById('confirmModal').classList.remove('show');
 
-  // 更新步驟
-  document.getElementById('step1').className = 'step done';
-  document.getElementById('line1').className = 'step-line done';
-  document.getElementById('step2').className = 'step done';
-  document.getElementById('line2').className = 'step-line done';
-  document.getElementById('step3').className = 'step active';
+  // 步驟更新
+  document.getElementById('s1').className = 'step done';
+  document.getElementById('l1').className = 'step-line done';
+  document.getElementById('s2').className = 'step done';
+  document.getElementById('l2').className = 'step-line done';
+  document.getElementById('s3').className = 'step active';
 
-  // 顯示成功畫面
   document.getElementById('formBody').classList.add('hidden');
+
   const rows = [
-    ['乘車日期', formData.date],
-    ['上車地點', formData.station],
-    ['乘車班次', formData.busTime],
-    ['姓名', formData.name],
+    ['參加場次', formData.date],
+    ['接駁地點', formData.station],
+    ['發車班次', formData.busTime],
+    ['姓名',     formData.name],
     ['手機號碼', formData.phone],
   ];
   document.getElementById('successRows').innerHTML = rows.map(([l,v]) =>
     `<div class="success-row"><span class="sr-label">${l}</span><span class="sr-val">${v}</span></div>`
   ).join('');
-  document.getElementById('successScreen').classList.add('show');
 
-  // 滾到頂
-  window.scrollTo({top:0, behavior:'smooth'});
+  document.getElementById('successScreen').classList.add('show');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
 </body>
