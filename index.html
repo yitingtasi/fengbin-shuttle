@@ -367,6 +367,12 @@ body {
     感謝您的預約！我們已收到您的接駁報名資料。<br>
     活動前將以 <strong style="color:#fff;">簡訊</strong> 通知接駁相關資訊。
   </p>
+  <div style="background:rgba(26,184,176,0.1);border:1px solid rgba(26,184,176,0.3);border-radius:10px;padding:14px 16px;margin-bottom:16px;font-size:13px;line-height:1.7;color:rgba(255,255,255,0.8);">
+    ⏳ <strong style="color:#1ab8b0;">3 秒後</strong>將自動跳轉至 Google 表單完成正式送出…<br>
+    <a href="https://forms.gle/E3psL4iXC5asNZUQ7" style="color:#1ab8b0;font-weight:900;font-size:12px;">
+      若未自動跳轉，請點此前往 →
+    </a>
+  </div>
   <div class="success-card">
     <div class="success-rows" id="successRows"></div>
   </div>
@@ -581,6 +587,11 @@ function confirmSubmit() {
 
   document.getElementById('successScreen').classList.add('show');
   window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // 3秒後跳轉至 Google Form 完成正式送出
+  setTimeout(function() {
+    window.location.href = 'https://forms.gle/E3psL4iXC5asNZUQ7';
+  }, 3000);
 }
 </script>
 </body>
