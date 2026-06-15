@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026豐濱製造音樂市集 交通指南</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+
+:root {
+  --teal:    #1ab8b0;
+  --coral:   #f05a28;
+  --gold:    #f5c842;
+  --dark2:   #0a1f28;
+  --white:   #ffffff;
+  --green:   #27ae60;
+  --purple:  #9b59b6;
+  --muted:   rgba(255,255,255,0.55);
+  --card-bg: rgba(255,255,255,0.06);
+  --card-border: rgba(255,255,255,0.12);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--dark2);
+  color: var(--white);
+  max-width: 860px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ══ HERO ══ */
+.hero {
+  background: linear-gradient(160deg, #0e3a4d 0%, #0b2a38 55%, #081e2c 100%);
+  padding: 52px 32px 44px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(26,184,176,0.3);
+}
+.hero::before {
+  content:'';
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 10% 60%, rgba(26,184,176,0.22) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 20%, rgba(240,90,40,0.15) 0%, transparent 50%);
+  pointer-events:none;
+}
+.hero-eyebrow {
+  display:inline-block;
+  border:1.5px solid var(--teal);
+  color:var(--teal);
+  font-size:11px;font-weight:900;letter-spacing:5px;
+  padding:4px 20px;border-radius:20px;margin-bottom:18px;position:relative;
+}
+.hero h1 { font-size:clamp(26px,5vw,40px);font-weight:900;line-height:1.15;position:relative; }
+.hero h1 span { color:var(--teal); }
+.hero-meta {
+  margin-top:16px;display:flex;justify-content:center;gap:24px;flex-wrap:wrap;position:relative;
+}
+.hero-meta-item { display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted); }
+.hero-meta-item strong { color:var(--white);font-size:14px; }
+.dot { width:5px;height:5px;background:var(--teal);border-radius:50%;display:inline-block; }
+
+/* ══ SECTION ══ */
+.section { padding:32px 28px;border-bottom:1px solid rgba(255,255,255,0.07); }
+.section-title { display:flex;align-items:flex-start;gap:12px;margin-bottom:20px; }
+.section-title .icon { font-size:22px;line-height:1;margin-top:2px; }
+.section-title h2 { font-size:18px;font-weight:900;letter-spacing:1px; }
+.section-title .sub { font-size:12px;color:var(--muted);margin-top:3px;font-weight:400; }
+
+.badge-free {
+  display:inline-block;background:var(--green);color:#fff;
+  font-size:10px;font-weight:900;letter-spacing:2px;
+  padding:2px 8px;border-radius:4px;margin-left:8px;vertical-align:middle;
+}
+
+/* ══ 號碼牌說明條 ══ */
+.ticket-bar {
+  background: rgba(245,200,66,0.1);
+  border: 1px solid rgba(245,200,66,0.35);
+  border-radius: 10px;
+  padding: 12px 18px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.9);
+}
+.ticket-bar .tb-icon { font-size: 20px; flex-shrink:0; margin-top:1px; }
+.ticket-bar strong { color: var(--gold); }
+
+/* ══ SHUTTLE CARDS ══ */
+.shuttle-arrow {
+  display:flex;align-items:center;gap:8px;margin:4px 0 16px;
+}
+.arrow-line { flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent); }
+.arrow-label {
+  background:rgba(26,184,176,0.15);border:1px solid rgba(26,184,176,0.3);
+  border-radius:20px;padding:3px 14px;font-size:11px;color:var(--teal);font-weight:700;letter-spacing:2px;
+}
+
+.shuttle-grid { display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px; }
+@media(max-width:560px){.shuttle-grid{grid-template-columns:1fr;}}
+
+.shuttle-card {
+  background:var(--card-bg);border:1px solid var(--card-border);
+  border-radius:12px;padding:20px;position:relative;overflow:hidden;
+}
+.shuttle-card::before {
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+}
+.shuttle-card.hl::before { background:linear-gradient(90deg,var(--teal),#0b7fa5); }
+.shuttle-card.gr::before { background:linear-gradient(90deg,var(--coral),var(--gold)); }
+.shuttle-from { font-size:11px;font-weight:700;letter-spacing:3px;color:var(--muted);margin-bottom:6px;text-transform:uppercase; }
+.shuttle-station { font-size:20px;font-weight:900;margin-bottom:14px; }
+.shuttle-station span.hl { color:var(--teal); }
+.shuttle-station span.gr { color:var(--gold); }
+.time-chips { display:flex;flex-wrap:wrap;gap:8px; }
+.time-chip {
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);
+  border-radius:6px;padding:6px 14px;font-size:17px;font-weight:900;
+}
+.shuttle-card.hl .time-chip { border-color:rgba(26,184,176,0.35);background:rgba(26,184,176,0.12); }
+.shuttle-card.gr .time-chip { border-color:rgba(245,200,66,0.35);background:rgba(245,200,66,0.12); }
+.shuttle-note { margin-top:12px;font-size:11.5px;color:var(--muted); }
+
+/* ══ 回程 ══ */
+.return-block {
+  background:rgba(240,90,40,0.08);border:1px solid rgba(240,90,40,0.2);
+  border-radius:12px;padding:20px;margin-top:8px;
+}
+.return-title {
+  font-size:13px;font-weight:900;color:var(--coral);letter-spacing:2px;
+  margin-bottom:16px;display:flex;align-items:center;gap:8px;
+}
+.return-dest-group { margin-bottom:16px; }
+.return-dest-group:last-child { margin-bottom:0; }
+.return-dest-label {
+  font-size:11px;font-weight:900;letter-spacing:3px;color:var(--muted);
+  text-transform:uppercase;margin-bottom:8px;
+}
+.return-row { display:flex;flex-wrap:wrap;gap:8px; }
+.return-card {
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);
+  border-radius:8px;padding:10px 16px;display:flex;align-items:center;gap:10px;
+}
+.return-time { font-size:20px;font-weight:900;color:var(--coral);line-height:1; }
+.return-desc { font-size:11px;color:var(--muted);line-height:1.4; }
+.return-note {
+  font-size:11.5px;color:rgba(255,255,255,0.4);margin-top:12px;line-height:1.6;
+}
+
+/* ══ 注意事項 ══ */
+.notice-list { display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px; }
+@media(max-width:560px){.notice-list{grid-template-columns:1fr;}}
+.notice-item {
+  background:rgba(255,255,255,0.04);border-left:3px solid var(--teal);
+  border-radius:0 8px 8px 0;padding:10px 14px;font-size:12.5px;
+  color:rgba(255,255,255,0.8);line-height:1.55;
+}
+.notice-item.warn { border-color:var(--coral); }
+.notice-item.gold { border-color:var(--gold); }
+
+/* ══ 公車區塊 ══ */
+.bus-section {
+  background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);
+  border-radius:14px;overflow:hidden;margin-bottom:14px;
+}
+.bus-header {
+  padding:14px 20px;display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:8px;border-bottom:1px solid rgba(255,255,255,0.07);
+}
+.bus-route-no { font-size:28px;font-weight:900;color:var(--gold);line-height:1;letter-spacing:-1px; }
+.bus-route-desc { font-size:13px;color:var(--white);font-weight:700; }
+.bus-route-sub { font-size:11px;color:var(--muted);margin-top:2px; }
+.bus-operator {
+  font-size:11px;background:rgba(245,200,66,0.12);border:1px solid rgba(245,200,66,0.25);
+  color:var(--gold);padding:3px 10px;border-radius:4px;font-weight:700;letter-spacing:1px;
+  white-space:nowrap;
+}
+.bus-body { padding:16px 20px; }
+
+/* 雙方向容器 */
+.bus-directions { display:grid;grid-template-columns:1fr 1fr;gap:14px; }
+@media(max-width:580px){.bus-directions{grid-template-columns:1fr;}}
+.bus-dir-block {
+  background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);
+  border-radius:8px;padding:12px 14px;
+}
+.direction-label {
+  font-size:10px;font-weight:900;letter-spacing:3px;color:var(--muted);
+  margin-bottom:8px;text-transform:uppercase;
+}
+.timetable-chips { display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px; }
+.t-chip {
+  background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);
+  border-radius:6px;padding:4px 10px;font-size:13px;font-weight:700;color:var(--white);
+}
+.t-chip.hi { background:rgba(245,200,66,0.15);border-color:rgba(245,200,66,0.4);color:var(--gold); }
+.bus-tip {
+  font-size:11.5px;color:rgba(245,200,66,0.85);background:rgba(245,200,66,0.07);
+  border-radius:6px;padding:7px 10px;line-height:1.55;
+}
+.bus-link {
+  display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--teal);
+  text-decoration:none;border:1px solid rgba(26,184,176,0.3);border-radius:5px;
+  padding:4px 10px;margin-top:8px;
+}
+
+.stops-preview { display:flex;flex-wrap:wrap;gap:5px;margin:8px 0; }
+.stop-tag {
+  font-size:10.5px;color:var(--muted);background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:2px 7px;
+}
+.stop-tag.key { color:var(--teal);border-color:rgba(26,184,176,0.25);background:rgba(26,184,176,0.07); }
+
+.divider-inner { height:1px;background:rgba(255,255,255,0.06);margin:12px 0; }
+
+/* 1125 班次稀少說明 */
+.sparse-note {
+  background:rgba(155,89,182,0.1);border:1px solid rgba(155,89,182,0.25);
+  border-radius:8px;padding:10px 14px;font-size:12.5px;
+  color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:10px;
+}
+.sparse-note strong { color:#c39bd3; }
+
+/* ══ 自駕停車 ══ */
+.parking-grid { display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px; }
+@media(max-width:560px){.parking-grid{grid-template-columns:1fr;}}
+.parking-card {
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);
+  border-radius:10px;padding:14px 16px;
+}
+.parking-num {
+  display:inline-block;width:22px;height:22px;background:rgba(245,200,66,0.2);
+  border:1px solid rgba(245,200,66,0.4);border-radius:50%;
+  text-align:center;line-height:22px;font-size:11px;font-weight:900;color:var(--gold);
+  margin-bottom:6px;
+}
+.parking-name { font-size:14px;font-weight:900;color:var(--white);margin-bottom:4px; }
+.parking-desc { font-size:11.5px;color:var(--muted);line-height:1.5; }
+.parking-shuttle-note {
+  margin-top:12px;background:rgba(26,184,176,0.07);border:1px solid rgba(26,184,176,0.2);
+  border-radius:8px;padding:10px 14px;font-size:12px;color:rgba(255,255,255,0.75);line-height:1.6;
+}
+.tag-pill {
+  display:inline-block;font-size:10px;font-weight:900;letter-spacing:2px;
+  padding:2px 9px;border-radius:4px;margin-left:6px;vertical-align:middle;
+}
+.tag-pill.coral { background:rgba(240,90,40,0.18);color:#ff7a55;border:1px solid rgba(240,90,40,0.35); }
+
+/* ══ FOOTER ══ */
+footer {
+  background:rgba(0,0,0,0.35);border-top:1px solid rgba(255,255,255,0.08);
+  padding:28px 32px;text-align:center;font-size:12px;color:var(--muted);line-height:2;
+}
+footer strong { color:rgba(255,255,255,0.8); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">115年 ／ 2025 FENGBIN MUSIC MARKET</div>
+  <h1>2026豐濱製造音樂市集<br><span>交通指南</span></h1>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><span class="dot"></span><strong>7月11–12日</strong>（六、日）</div>
+    <div class="hero-meta-item"><span class="dot"></span>活動時間 <strong>15:00 – 22:00</strong></div>
+    <div class="hero-meta-item"><span class="dot"></span>地點 <strong>豐濱溪出海口</strong></div>
+  </div>
+</div>
+
+<!-- ██ SECTION 1 — 接駁車 ██ -->
+<div class="section">
+  <div class="section-title">
+    <span class="icon">🚌</span>
+    <div>
+      <h2>活動專屬接駁車 <span class="badge-free">免費</span></h2>
+      <div class="sub">7月11日（六）、7月12日（日）兩日均開行</div>
+    </div>
+  </div>
+
+  <!-- 號碼牌說明 -->
+  <div class="ticket-bar">
+    <div class="tb-icon">🎫</div>
+    <div>
+      <strong>號碼牌乘車制度</strong>：抵達集合地點後，工作人員將依到場先後順序<strong>發放號碼牌</strong>，依號碼牌順序上車。號碼牌發完即止，座位有限，<strong>請提早抵達候車</strong>，以免向隅。
+    </div>
+  </div>
+
+  <!-- 預約報名入口 -->
+  <a href="https://forms.gle/E3psL4iXC5asNZUQ7" target="_blank" style="
+    display:flex;align-items:center;justify-content:space-between;
+    background:linear-gradient(135deg,rgba(26,184,176,0.18),rgba(26,184,176,0.08));
+    border:1.5px solid rgba(26,184,176,0.45);border-radius:12px;
+    padding:16px 20px;margin-bottom:20px;text-decoration:none;
+    transition:all .2s;
+  ">
+    <div>
+      <div style="font-size:13px;font-weight:900;color:#1ab8b0;letter-spacing:1px;margin-bottom:4px;">
+        📋 立即預約接駁車
+      </div>
+      <div style="font-size:11.5px;color:rgba(255,255,255,0.6);line-height:1.5;">
+        填寫姓名與手機，事前掌握人數<br>確保您的座位
+      </div>
+    </div>
+    <div style="font-size:24px;flex-shrink:0;margin-left:12px;">→</div>
+  </a>
+
+  <!-- 往場 -->
+  <div class="shuttle-arrow">
+    <div class="arrow-line"></div>
+    <div class="arrow-label">↗ 往豐濱 發車時刻</div>
+    <div class="arrow-line"></div>
+  </div>
+
+  <div class="shuttle-grid">
+    <div class="shuttle-card hl">
+      <div class="shuttle-from">出發地 A</div>
+      <div class="shuttle-station">花蓮<span class="hl">火車站</span></div>
+      <div class="time-chips">
+        <div class="time-chip">14:30</div>
+        <div class="time-chip">14:45</div>
+      </div>
+      <div class="shuttle-note">🚍 大型遊覽車 ／ 車程約 80 分鐘<br>集合於前站廣場入口處</div>
+    </div>
+    <div class="shuttle-card gr">
+      <div class="shuttle-from">出發地 B</div>
+      <div class="shuttle-station">光復<span class="gr">火車站</span></div>
+      <div class="time-chips">
+        <div class="time-chip">15:00</div>
+      </div>
+      <div class="shuttle-note">🚌 中型遊覽車 ／ 車程約 40 分鐘<br>集合於車站正門廣場</div>
+    </div>
+  </div>
+
+  <!-- 回程 -->
+  <div class="return-block">
+    <div class="return-title">↩ 回程接駁（豐濱溪出海口 出發）</div>
+
+    <div class="return-dest-group">
+      <div class="return-dest-label">🏠 往花蓮火車站方向</div>
+      <div class="return-row">
+        <div class="return-card">
+          <div class="return-time">20:10</div>
+          <div class="return-desc">第一班<br>車程約 80 分鐘</div>
+        </div>
+        <div class="return-card">
+          <div class="return-time">20:20</div>
+          <div class="return-desc">第二班<br>車程約 80 分鐘</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:14px;"></div>
+
+    <div class="return-dest-group">
+      <div class="return-dest-label">🏠 往光復火車站方向</div>
+      <div class="return-row">
+        <div class="return-card">
+          <div class="return-time">20:10</div>
+          <div class="return-desc">第一班<br>車程約 40 分鐘</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="return-note">
+      ✦ 回程同樣採號碼牌制，請於 20:00 前至回程集合區領取號碼牌<br>
+      ✦ 實際發車時刻依現場人員清點確認後為準，請勿提早離開活動現場
+    </div>
+  </div>
+
+  <!-- 注意事項 -->
+  <div class="notice-list">
+    <div class="notice-item">
+      🕐 請於發車時間 <strong>前 10 分鐘</strong>抵達集合處，逾時視同放棄本班次
+    </div>
+    <div class="notice-item">
+      🎫 號碼牌發完即止，建議<strong>提早到場</strong>排隊領取，無號碼牌者無法搭乘
+    </div>
+    <div class="notice-item warn">
+      👴 行動不便旅客可提前電話告知，工作人員優先協助上下車
+    </div>
+    <div class="notice-item gold">
+      🌀 颱風備案：活動前 48 小時公告，請關注官方 LINE 頻道最新通知
+    </div>
+  </div>
+</div>
+
+<!-- ██ SECTION 2 — 一般公車 ██ -->
+<div class="section">
+  <div class="section-title">
+    <span class="icon">🚍</span>
+    <div>
+      <h2>一般公車路線</h2>
+      <div class="sub">無法搭乘接駁車的旅客，可參考以下公車班次自行前往或返回</div>
+    </div>
+  </div>
+
+  <!-- 1140路 -->
+  <div class="bus-section">
+    <div class="bus-header">
+      <div>
+        <div class="bus-route-no">1140</div>
+        <div class="bus-route-desc">花蓮火車站（轉運站）↔ 豐濱 ↔ 靜浦</div>
+        <div class="bus-route-sub">台11線東海岸，途經海洋公園、水璉、磯崎、新社</div>
+      </div>
+      <div style="text-align:right;">
+        <div class="bus-operator">統聯客運</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:6px;">車程約 90 分鐘</div>
+      </div>
+    </div>
+    <div class="bus-body">
+      <div class="stops-preview" style="margin-bottom:12px;">
+        <span class="stop-tag key">花蓮轉運站</span>
+        <span class="stop-tag">海洋公園</span>
+        <span class="stop-tag">水璉</span>
+        <span class="stop-tag">芭崎</span>
+        <span class="stop-tag">磯崎</span>
+        <span class="stop-tag">新社</span>
+        <span class="stop-tag key">豐濱</span>
+        <span class="stop-tag">石梯坪</span>
+        <span class="stop-tag">月洞</span>
+        <span class="stop-tag">靜浦</span>
+      </div>
+
+      <div class="bus-directions">
+        <!-- 往豐濱 -->
+        <div class="bus-dir-block">
+          <div class="direction-label">↗ 往豐濱／靜浦（花蓮轉運站 發）</div>
+          <div class="timetable-chips">
+            <div class="t-chip">05:30</div>
+            <div class="t-chip">06:30</div>
+            <div class="t-chip">08:20</div>
+            <div class="t-chip">10:20</div>
+            <div class="t-chip">11:10</div>
+            <div class="t-chip hi">13:00 ★</div>
+            <div class="t-chip">15:40</div>
+            <div class="t-chip">16:10</div>
+          </div>
+          <div class="bus-tip">★ 13:00 班次約 14:30–15:00 抵達豐濱，剛好趕上市集開幕</div>
+        </div>
+
+        <!-- 往花蓮 -->
+        <div class="bus-dir-block">
+          <div class="direction-label">↙ 往花蓮（靜浦／豐濱 發）</div>
+          <div class="timetable-chips">
+            <div class="t-chip">07:30</div>
+            <div class="t-chip">09:00</div>
+            <div class="t-chip">11:00</div>
+            <div class="t-chip">13:20</div>
+            <div class="t-chip">15:00</div>
+            <div class="t-chip hi">16:40 ★</div>
+            <div class="t-chip">18:20</div>
+          </div>
+          <div class="bus-tip">★ 末班 18:20 自靜浦發車，豐濱站約 19:00 前後；活動結束後末班已過，建議搭乘接駁車</div>
+          <a class="bus-link" href="https://110traffic.hl.gov.tw/Bus/BusArrivelTime?input=1140&from=arrival" target="_blank">🔗 即時動態 ／ 花蓮e點通</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1125路 -->
+  <div class="bus-section">
+    <div class="bus-header">
+      <div>
+        <div class="bus-route-no">1125</div>
+        <div class="bus-route-desc">光復火車站 ↔ 豐濱</div>
+        <div class="bus-route-sub">台11甲線光豐公路，穿越海岸山脈</div>
+      </div>
+      <div style="text-align:right;">
+        <div class="bus-operator">花蓮客運</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:6px;">車程約 30–35 分鐘</div>
+      </div>
+    </div>
+    <div class="bus-body">
+      <div class="stops-preview" style="margin-bottom:12px;">
+        <span class="stop-tag key">光復火車站</span>
+        <span class="stop-tag">東富村</span>
+        <span class="stop-tag">忠孝橋</span>
+        <span class="stop-tag">信義橋</span>
+        <span class="stop-tag">和平橋</span>
+        <span class="stop-tag key">豐濱</span>
+      </div>
+      <div class="sparse-note">
+        ⚠️ 本路線<strong>班次稀少</strong>，適合從台東、玉里、瑞穗方向在光復站下車的旅客轉乘。<br>
+        活動結束後（22:00）末班車已過，<strong>返程請務必搭乘活動接駁車</strong>（光復線 20:10）。
+      </div>
+      <div class="bus-directions">
+        <div class="bus-dir-block">
+          <div class="direction-label">↗ 往豐濱（光復火車站 發）</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:8px;">班次請至查詢連結確認當日時刻</div>
+          <a class="bus-link" href="https://www.taiwanbus.tw/eBUSPage/Query/QueryResult.aspx?rno=11250&rn=1731418898656&lan=C" target="_blank">🔗 時刻表查詢 ／ 公路客運iBus</a>
+        </div>
+        <div class="bus-dir-block">
+          <div class="direction-label">↙ 往光復（豐濱 發）</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:8px;">班次請至查詢連結確認當日時刻<br><strong style="color:#c39bd3;">活動結束後末班已過，請搭乘接駁車返回光復</strong></div>
+          <a class="bus-link" href="https://www.taiwanbus.tw/eBUSPage/Query/QueryResult.aspx?rno=11250&rn=1731418898656&lan=C" target="_blank">🔗 時刻表查詢 ／ 公路客運iBus</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ██ SECTION 3 — 自駕停車 ██ -->
+<div class="section">
+  <div class="section-title">
+    <span class="icon">🚗</span>
+    <div>
+      <h2>自行開車 <span class="tag-pill coral">停車再接駁</span></h2>
+      <div class="sub">活動現場無公眾停車空間，請停放至以下停車點後換乘現場接駁</div>
+    </div>
+  </div>
+
+  <div class="parking-grid">
+    <div class="parking-card">
+      <div class="parking-num">北</div>
+      <div class="parking-name">女媧娘娘廟</div>
+      <div class="parking-desc">北區停車點，台11線北側<br>停車後搭乘現場接駁小車至會場入口</div>
+    </div>
+    <div class="parking-card">
+      <div class="parking-num">南</div>
+      <div class="parking-name">豐濱多功能廣場</div>
+      <div class="parking-desc">南區停車點，廣場內規劃停車格<br>步行或搭乘接駁小車至會場</div>
+    </div>
+    <div class="parking-card">
+      <div class="parking-num">南</div>
+      <div class="parking-name">順天宮媽祖廟</div>
+      <div class="parking-desc">南區停車點，廟埕停車區域<br>停車後搭乘現場接駁至會場入口</div>
+    </div>
+    <div class="parking-card">
+      <div class="parking-num">中</div>
+      <div class="parking-name">豐濱鄉公所</div>
+      <div class="parking-desc">中心停車點，鄉公所周邊停車區<br>步行或搭乘接駁小車至會場</div>
+    </div>
+  </div>
+
+  <div class="parking-shuttle-note">
+    🚐 各停車點均設有<strong>現場接駁小車往返會場</strong>，請依現場工作人員指引停放車輛。<br>
+    ⚠️ 台11線路窄車多，<strong>嚴禁路邊停車</strong>，請尊重在地部落停車空間，勿隨意駛入部落區域。
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <strong>花蓮縣豐濱鄉公所</strong> 主辦 ／ <strong>心燦整合行銷有限公司</strong> 執行<br>
+  班次時刻以官方公告為準，如有調整將提前透過官方 LINE 頻道通知<br>
+  查詢電話：<strong>03-8312881</strong> ／ xincan0914@gmail.com
+</footer>
+
+</body>
+</html>
