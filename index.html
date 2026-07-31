@@ -99,12 +99,22 @@ body {
 .station-grid { display:grid;grid-template-columns:1fr 1fr;gap:10px; }
 @media(max-width:380px){ .station-grid,.date-grid{ grid-template-columns:1fr; } }
 .station-card {
+  position:relative;
   border:2px solid rgba(255,255,255,0.1);border-radius:12px;
   padding:16px 14px;cursor:pointer;transition:all .2s;
   background:var(--card);-webkit-tap-highlight-color:transparent;
 }
 .station-card.sel { border-color:var(--teal);background:rgba(26,184,176,0.12); }
+.station-card.soldout {
+  opacity:.4;filter:grayscale(70%);cursor:not-allowed;pointer-events:none;
+}
 .station-card input[type=radio] { display:none; }
+.soldout-badge {
+  display:none;position:absolute;top:10px;right:10px;
+  background:var(--coral);color:#fff;font-size:10px;font-weight:900;
+  letter-spacing:1px;padding:3px 9px;border-radius:20px;z-index:2;
+}
+.station-card.soldout .soldout-badge { display:inline-block; }
 .sc-badge {
   font-size:9px;font-weight:900;letter-spacing:3px;color:var(--muted);margin-bottom:6px;
 }
@@ -297,12 +307,14 @@ body {
   <div class="station-grid" id="stationGrid">
     <label class="station-card" id="sc-hl">
       <input type="radio" name="station" value="花蓮火車站">
+      <div class="soldout-badge">已額滿</div>
       <div class="sc-badge">出發地 A</div>
       <div class="sc-name">花蓮火車站</div>
       <div class="sc-sub">前站廣場入口<br>車程約 80 分鐘</div>
     </label>
     <label class="station-card" id="sc-gr">
       <input type="radio" name="station" value="光復火車站">
+      <div class="soldout-badge">已額滿</div>
       <div class="sc-badge">出發地 B</div>
       <div class="sc-name">光復火車站</div>
       <div class="sc-fixed-time">15:00</div>
@@ -410,12 +422,43 @@ body {
 <script>
 let formData = {};
 
+// ── 額滿設定：日期 → 該日已額滿的接駁站點清單 ──
+// 需要關閉其他班次時，直接在對應日期的陣列裡加入站點名稱即可
+const SOLDOUT_STATIONS = {
+  '8月1日（六）': ['光復火車站'],
+};
+
+function updateStationAvailability(dateVal) {
+  const soldOutList = SOLDOUT_STATIONS[dateVal] || [];
+  document.querySelectorAll('.station-card').forEach(card => {
+    const input = card.querySelector('input[name=station]');
+    const isSoldOut = soldOutList.includes(input.value);
+
+    if (isSoldOut) {
+      card.classList.add('soldout');
+      input.disabled = true;
+      if (input.checked) {
+        // 若使用者先選了這個已額滿站點，強制取消選取並收合班次區
+        input.checked = false;
+        card.classList.remove('sel');
+        document.getElementById('timeLabel').style.display = 'none';
+        document.getElementById('timeWrap').classList.remove('show');
+        document.getElementById('fixedTimeBlock').classList.remove('show');
+      }
+    } else {
+      card.classList.remove('soldout');
+      input.disabled = false;
+    }
+  });
+}
+
 // ── 場次選擇 ──
 document.querySelectorAll('input[name=date]').forEach(r => {
   r.addEventListener('change', function() {
     document.querySelectorAll('.date-card').forEach(d => d.classList.remove('sel'));
     this.closest('.date-card').classList.add('sel');
     document.getElementById('dateGrid').style.outline = '';
+    updateStationAvailability(this.value);
   });
 });
 
